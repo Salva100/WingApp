@@ -4,8 +4,9 @@ local scene = composer.newScene()
 -- Called when the scene's view does not exist:
 function scene:create( event )
 	local group = self.view
-        
-        local btn = display.newImage( group, "images/ico_01.png" )
+        local background = display.newImage( group, "images/madera.jpeg")
+    	background:translate( centerX, centerY )
+        local btn = display.newImage( group, "images/novalido.png" )
         btn:translate( centerX, centerY )
         
         

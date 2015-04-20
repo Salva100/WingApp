@@ -4,11 +4,19 @@ local scene = composer.newScene()
 -- Called when the scene's view does not exist:
 function scene:create( event )
 	local group = self.view
+	 	local background = display.newImage( group, "images/madera.jpeg")
+    	background:translate( centerX, centerY )
+		local regist = display.newImage( group, "images/regis.png")
+		regist:translate( centerX, centerY/10  )
+        local btnFace = display.newImage( group, "images/face1.png")
+        btnFace:translate( centerX,  (centerY- centerY/4 )-centerY/3 )
+        local btnTwi = display.newImage( group, "images/twitter1.png" )
+        btnTwi:translate( centerX, centerY -centerY/3 )
+        local btnGoo = display.newImage( group, "images/google1.png")
+        btnGoo:translate( centerX, (centerY+ centerY/4)-centerY/3 )
         
-        local btn = display.newImage( group, "images/ico_02.png" )
-        btn:translate( centerX, centerY )
-        
-        
+        local email = display.newImage( group, "images/email.png")
+        email:translate( centerX, (centerY+ (centerY/4)*2)-centerY/3 )
 end
 
 

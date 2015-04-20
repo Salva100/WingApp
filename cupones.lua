@@ -5,10 +5,14 @@ local scene = composer.newScene()
 function scene:create( event )
 	local group = self.view
         
-        local btn = display.newImage( group, "images/ico_04.png" )
-        btn:translate( centerX, centerY )
-        
-        
+       local background = display.newImage( group, "images/madera.jpeg")
+    	background:translate( centerX, centerY )
+    	local texto =  display.newImage( group, "images/textocupon2.png")
+        texto:translate( centerX, centerY/10)
+        local cupon= display.newImage( group, "images/testimageco.png")
+        cupon:translate( centerX, centerY )
+        cupon:scale(1, .9)
+
 end
 
 

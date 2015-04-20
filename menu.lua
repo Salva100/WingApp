@@ -16,7 +16,11 @@ end
 -- Called when the scene's view does not exist:
 function scene:create( event )
 	local group = self.view
-        
+	local background = display.newImage( group, "images/madera.jpeg")
+    	background:translate( centerX, centerY )
+        --menufondo =  display.newImage( "images/menufondo.png" )
+        --menufondo:translate( centerX, centerY*2 )
+        --menufondo :scale(.7, .4)
         btnFactura = display.newImage( "images/ico_01.png" )
         btnFactura:translate( centerX/8, centerY*2 )
         btnFactura:addEventListener("tap", btnTapMenu)
