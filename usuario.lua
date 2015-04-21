@@ -1,14 +1,53 @@
 local scene = composer.newScene()
 
+local datos, boton
+
+
+local function onTouch(object, event)
+    
+    if(object.myName == 1) then
+        local alert = native.showAlert( "", "Edita tus datos: ----PRUEBA----", { "OK" }, onComplete )
+        
+    end
+end
+
+local function onComplete( event )
+   if event.action == "clicked" then
+        local i = event.index
+        if i == 1 then
+            -- Do nothing; dialog will simply dismiss
+        end
+    end
+end
 
 -- Called when the scene's view does not exist:
 function scene:create( event )
 	local group = self.view
-        local background = display.newImage( group, "images/madera.jpeg")
-    	background:translate( centerX, centerY )
-        local btn = display.newImage( group, "images/novalido.png" )
-        btn:translate( centerX, centerY )
         
+        local background = display.newImage( group, "images/madera.jpeg")
+    	background:translate( centerX, centerY - 50)
+        background:scale(.5,.5)
+        
+        local img = display.newImage( group, "images/Marcos.png" )
+        img:translate( 75,25 )
+        img:scale(.3,.3)
+        
+        datos= display.newText(group ,"Miguel Marcos", 220,  3, native.systemFont, 20)
+        datos= display.newText(group ,"Área Metropolitana", 220,  23, native.systemFont, 20)
+        
+        local img2 = display.newImage( group, "images/usuarioX.png" )
+        img2:translate( centerX, centerY + 40 )
+        img2:scale(.4,.4)
+        
+        boton = display.newImage( group, "images/editar.png" )
+        boton:translate( 220, 63 )
+        boton:scale(.4,.4)
+        
+        boton.myName = 1
+        boton.touch = onTouch	
+        boton:addEventListener( "touch", boton )
+        
+        print "miEscena2"
         
 end
 

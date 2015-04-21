@@ -16,8 +16,9 @@ end
 -- Called when the scene's view does not exist:
 function scene:create( event )
 	local group = self.view
-	local background = display.newImage( group, "images/madera.jpeg")
-    	background:translate( centerX, centerY )
+	local background = display.newImage( group, "images/wingApp.png")
+    	background:translate( centerX, centerY-50 )
+        background:scale(.5,.5)
         --menufondo =  display.newImage( "images/menufondo.png" )
         --menufondo:translate( centerX, centerY*2 )
         --menufondo :scale(.7, .4)
@@ -62,6 +63,7 @@ function scene:create( event )
         btnUsuario:addEventListener("tap", btnTapMenu)
         btnUsuario.destination = "usuario"
         btnUsuario:scale(.2, .2)
+        
         
 end
 
