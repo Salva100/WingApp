@@ -1,4 +1,4 @@
-require "CiderDebugger";composer = require( "composer" )
+composer = require( "composer" )
 
 display.setStatusBar( display.HiddenStatusBar )
 system.setIdleTimer( false ) -- para no apagar la pantalla
