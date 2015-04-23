@@ -4,10 +4,10 @@ function btSi(event)
 
 	objetoseleccionado:removeSelf()
 	  composer.removeScene( "cupones2")
-       
+
       --composer.gotoScene ( 	composer.getSceneName( "current" ) )
     	
-	
+	return true
 	
 end
 function btNo(event)

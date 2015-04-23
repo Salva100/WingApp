@@ -18,14 +18,12 @@ scrollView = widget.newScrollView
 local function btcupo(event)
 
         --ruta=object.ruta
-      	objetoseleccionado=event.target
-        ruta=event.target.destination
-   composer.showOverlay( "cupones2" ,{isModal = true } )
+     	objetoseleccionado=event.target
+      ruta=event.target.destination
+   composer.showOverlay( "cupones2"  )
    
          	
-      
- 
-	
+   
 end
 
 
