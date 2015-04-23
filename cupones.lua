@@ -40,8 +40,8 @@ function scene:create( event )
 
 
        	 for count = 1, 5 do
-       	 	--temp = math.random(1,5)
-         imagenProducto[count] = display.newImage(group,"images/cupon"..count..".png")
+       	 	temp = math.random(5)
+         imagenProducto[count] = display.newImage(group,"images/cupon"..temp..".png")
          imagenProducto[count].x = centerX-- (((centerX*2)/17)*(count*2))-(centerX/17)
          imagenProducto[count].y = ((centerY/10)*7 )*(count-1)+centerY/3
          imagenProducto[count].myName = count
