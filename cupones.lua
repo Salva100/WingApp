@@ -20,7 +20,7 @@ local function btcupo(event)
         --ruta=object.ruta
      	objetoseleccionado=event.target
       ruta=event.target.destination
-   composer.showOverlay( "cupones2"  )
+   composer.showOverlay( "cupones2",{isModal = false})
    
          	
    

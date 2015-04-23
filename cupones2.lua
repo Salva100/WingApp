@@ -3,6 +3,7 @@ local widget = require( "widget" )
 function btSi(event)
 
 	objetoseleccionado:removeSelf()
+
 	  composer.removeScene( "cupones2")
 
       --composer.gotoScene ( 	composer.getSceneName( "current" ) )
@@ -12,8 +13,9 @@ function btSi(event)
 end
 function btNo(event)
         
-       
-            composer.gotoScene ( event.target.destination, { effect = "slideRight" } )
+        -- composer.removeScene( "cupones2")
+
+         composer.gotoScene ( event.target.destination, { effect = "slideRight" } )
   
 	
 	return true
@@ -56,7 +58,7 @@ function scene:hide( event )
 	
 	collectgarbage()
 
-	composer.removeScene( composer.getSceneName( "current" ) )
+	composer.removeScene( "cupones2" ,true)
 	
 	--Runtime:removeEventListener("enterFrame", update)
 	-- INSERT code here (e.g. stop timers, remove listeners, unload sounds, etc.)
