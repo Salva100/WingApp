@@ -2,14 +2,13 @@ local scene = composer.newScene()
 local widget = require( "widget" )
 function btSi(event)
 
-	objetoseleccionado.isVisible=false
-
+	objetoseleccionado:removeSelf()
 	  composer.removeScene( "cupones2")
        
       --composer.gotoScene ( 	composer.getSceneName( "current" ) )
     	
 	
-	return true
+	
 end
 function btNo(event)
         
@@ -69,7 +68,7 @@ end
 function scene:destroy( event )
 	local group = self.view
 	
-	collectgarbage()
+	--collectgarbage()
 
 	
 	-- INSERT code here (e.g. remove listeners, widgets, save state, etc.)

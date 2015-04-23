@@ -2,21 +2,8 @@ local scene = composer.newScene()
 local widget = require( "widget" )
 local imagenProducto = {}
 selecupo={}
---objetoseleccionado=nil
--- Called when the scene's view does not exist:
-local function btcupo(object,event)
 
-
-        ruta=object.ruta
-      	objetoseleccionado=object
-   composer.showOverlay( "cupones2" ,{isModal = true } )
-   
-         	--ruta=event.target.destinatio
-      
- 
-	
-end
-local scrollView = widget.newScrollView
+scrollView = widget.newScrollView
 {
     top = (centerY/10)*3 ,
     width = centerX*2,
@@ -26,6 +13,21 @@ local scrollView = widget.newScrollView
     horizontalScrollDisabled=true,
     listener = scrollListener
 }
+--objetoseleccionado=nil
+-- Called when the scene's view does not exist:
+local function btcupo(event)
+
+        --ruta=object.ruta
+      	objetoseleccionado=event.target
+        ruta=event.target.destination
+   composer.showOverlay( "cupones2" ,{isModal = true } )
+   
+         	
+      
+ 
+	
+end
+
 
 function scene:create( event )
 	local group = self.view
@@ -47,10 +49,10 @@ function scene:create( event )
          imagenProducto[count].myName = count
          imagenProducto[count].number=totalelementos
       	 imagenProducto[count].ruta="images/cupon"..count..".png"
-        -- imagenProducto[count]:addEventListener("tap", btcupo)
-        -- imagenProducto[count].destination = "images/cupon"..count..".png"
-        imagenProducto[count].touch=btcupo
-        imagenProducto[count]:addEventListener( "touch", imagenProducto[count] )
+        imagenProducto[count]:addEventListener("tap", btcupo)
+        imagenProducto[count].destination = "images/cupon"..count..".png"
+        --imagenProducto[count].touch=btcupo
+       -- imagenProducto[count]:addEventListener( "touch", imagenProducto[count] )
 
      	
      	
