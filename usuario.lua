@@ -26,11 +26,8 @@ function scene:create( event )
         
        local bk = display.newRect(group,0,0, display.viewableContentWidth, display.viewableContentHeight)
         bk:setFillColor(0,0,0)
-        bk:toBack()
-        
-       
-        local lblFeed = display.newText(group,"Miguel Marcos", 220, 3, native.systemFont, 20)
-        
+        bk:toBack()        
+               
         local background = display.newImage( group, "images/madera.jpeg")
     	background:translate( centerX, centerY - 50)
         background:scale(.5,.5)
@@ -44,6 +41,9 @@ function scene:create( event )
         local img2 = display.newImage( group, "images/usuarioX.png" )
         img2:translate( centerX, centerY + 40 )
         img2:scale(.4,.4)
+
+
+        local lblFeed = display.newText(group,"Miguel Marcos", 220, 3, native.systemFont, 20)
 
         datos= display.newText(group ,"Nombre", 160,  123, native.systemFont, 20)
         datos= display.newText(group ,"Dirección", 160,  203, native.systemFont, 20)
@@ -78,7 +78,7 @@ function scene:create( event )
 
                     elseif ( event.phase == "ended" or event.phase == "submitted" ) then
                         -- do something with defaultField text
-                        lblFeed.text = "Thank you" .. "" .. event.target.text
+                        lblFeed.text = event.target.text
 
                     elseif ( event.phase == "editing" ) then
                         lblFeed.text = event.startPosition
