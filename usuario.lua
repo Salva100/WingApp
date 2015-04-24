@@ -24,23 +24,12 @@ end
 function scene:create( event )
 	local group = self.view
         
-        local bk = display.newRect(0,0, display.viewableContentWidth, display.viewableContentHeight)
+       local bk = display.newRect(group,0,0, display.viewableContentWidth, display.viewableContentHeight)
         bk:setFillColor(0,0,0)
         bk:toBack()
         
-        local txtB = native.newTextField(160, 155, 280, 35)
-        txtB.size = 20
-        txtB:addEventListener("userInput", txtB)
-
-         local txtC = native.newTextField(160, 235, 280, 35)
-        txtC.size = 20
-        txtC:addEventListener("userInput", txtB)
-
-         local txtD = native.newTextField(160, 315, 280, 35)
-        txtD.size = 20
-        txtD:addEventListener("userInput", txtB)
-        
-        local lblFeed = display.newText("Miguel Marcos", 220, 3, native.systemFont, 20)
+       
+        local lblFeed = display.newText(group,"Miguel Marcos", 220, 3, native.systemFont, 20)
         
         local background = display.newImage( group, "images/madera.jpeg")
     	background:translate( centerX, centerY - 50)
@@ -59,7 +48,19 @@ function scene:create( event )
         datos= display.newText(group ,"Nombre", 160,  123, native.systemFont, 20)
         datos= display.newText(group ,"Dirección", 160,  203, native.systemFont, 20)
         datos= display.newText(group ,"Correo electrónico", 160,  283, native.systemFont, 20)
+         local txtB = native.newTextField(160, 155, 280, 35)
+        txtB.size = 20
+        txtB:addEventListener("userInput", txtB)
+        group:insert(txtB)
         
+         local txtC = native.newTextField(160, 235, 280, 35)
+        txtC.size = 20
+        txtC:addEventListener("userInput", txtB)
+         group:insert(txtC)
+         local txtD = native.newTextField(160, 315, 280, 35)
+        txtD.size = 20
+        txtD:addEventListener("userInput", txtB)
+          group:insert(txtD)
         boton = display.newImage( group, "images/editar.png" )
         boton:translate( 220, 63 )
         boton:scale(.4,.4)
