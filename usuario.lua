@@ -24,6 +24,24 @@ end
 function scene:create( event )
 	local group = self.view
         
+        local bk = display.newRect(0,0, display.viewableContentWidth, display.viewableContentHeight)
+        bk:setFillColor(0,0,0)
+        bk:toBack()
+        
+        local txtB = native.newTextField(160, 155, 280, 35)
+        txtB.size = 20
+        txtB:addEventListener("userInput", txtB)
+
+         local txtC = native.newTextField(160, 235, 280, 35)
+        txtC.size = 20
+        txtC:addEventListener("userInput", txtB)
+
+         local txtD = native.newTextField(160, 315, 280, 35)
+        txtD.size = 20
+        txtD:addEventListener("userInput", txtB)
+        
+        local lblFeed = display.newText("Miguel Marcos", 220, 3, native.systemFont, 20)
+        
         local background = display.newImage( group, "images/madera.jpeg")
     	background:translate( centerX, centerY - 50)
         background:scale(.5,.5)
@@ -32,12 +50,15 @@ function scene:create( event )
         img:translate( 75,25 )
         img:scale(.3,.3)
         
-        datos= display.newText(group ,"Miguel Marcos", 220,  3, native.systemFont, 20)
         datos= display.newText(group ,"Área Metropolitana", 220,  23, native.systemFont, 20)
-        
+
         local img2 = display.newImage( group, "images/usuarioX.png" )
         img2:translate( centerX, centerY + 40 )
         img2:scale(.4,.4)
+
+        datos= display.newText(group ,"Nombre", 160,  123, native.systemFont, 20)
+        datos= display.newText(group ,"Dirección", 160,  203, native.systemFont, 20)
+        datos= display.newText(group ,"Correo electrónico", 160,  283, native.systemFont, 20)
         
         boton = display.newImage( group, "images/editar.png" )
         boton:translate( 220, 63 )
@@ -47,7 +68,62 @@ function scene:create( event )
         boton.touch = onTouch	
         boton:addEventListener( "touch", boton )
         
-        print "miEscena2"
+        function txtB:userInput( event )
+
+                    if ( event.phase == "began" ) then
+                        -- user begins editing defaultField
+                        event.target.text = ''
+                        lblFeed.text = "Waiting"
+
+                    elseif ( event.phase == "ended" or event.phase == "submitted" ) then
+                        -- do something with defaultField text
+                        lblFeed.text = "Thank you" .. "" .. event.target.text
+
+                    elseif ( event.phase == "editing" ) then
+                        lblFeed.text = event.startPosition
+                    end
+
+                end
+                
+                function bk:tap(event)
+                    native.setKeyboardFocus(nil)
+                end
+                
+                bk:addEventListener("tap", bk)
+
+                function txtC:userInput( event )
+
+                    if ( event.phase == "began" ) then
+                        -- user begins editing defaultField
+
+                    elseif ( event.phase == "ended" or event.phase == "submitted" ) then
+                        -- do something with defaultField text
+
+                    elseif ( event.phase == "editing" ) then
+                        lblFeed.text = event.startPosition
+                    end
+
+                end
+                
+                function txtD:userInput( event )
+
+                    if ( event.phase == "began" ) then
+                        -- user begins editing defaultField
+
+                    elseif ( event.phase == "ended" or event.phase == "submitted" ) then
+                        -- do something with defaultField text
+
+                    elseif ( event.phase == "editing" ) then
+                        lblFeed.text = event.startPosition
+                    end
+
+                end
+                
+                function bk:tap(event)
+                    native.setKeyboardFocus(nil)
+                end
+                
+                
         
 end
 
@@ -79,8 +155,6 @@ function scene:destroy( event )
 	local group = self.view
 	
 	collectgarbage()
-
-	
 	-- INSERT code here (e.g. remove listeners, widgets, save state, etc.)
 	-- Remove listeners attached to the Runtime, timers, transitions, audio tracks
 
