@@ -20,7 +20,7 @@ local function btcupo(event)
         --ruta=object.ruta
      	objetoseleccionado=event.target
       ruta=event.target.destination
-   composer.showOverlay( "cupones2",{isModal = false})
+   composer.showOverlay( "cupones2",{ isModal = true })
    
          	
    
@@ -46,9 +46,9 @@ function scene:create( event )
          imagenProducto[count].y = ((centerY/10)*7 )*(count-1)+centerY/3
          imagenProducto[count].myName = count
          imagenProducto[count].number=totalelementos
-      	 imagenProducto[count].ruta="images/cupon"..count..".png"
+      	-- imagenProducto[count].ruta="images/cupon"..count..".png"
         imagenProducto[count]:addEventListener("tap", btcupo)
-        imagenProducto[count].destination = "images/cupon"..count..".png"
+        imagenProducto[count].destination = "images/cupon"..temp..".png"
         --imagenProducto[count].touch=btcupo
        -- imagenProducto[count]:addEventListener( "touch", imagenProducto[count] )
 

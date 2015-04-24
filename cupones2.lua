@@ -13,9 +13,9 @@ function btSi(event)
 end
 function btNo(event)
         
-        -- composer.removeScene( "cupones2")
+         composer.removeScene( "cupones2")
 
-         composer.gotoScene ( event.target.destination, { effect = "slideRight" } )
+        -- composer.gotoScene ( event.target.destination, { effect = "slideRight" } )
   
 	
 	return true
@@ -58,8 +58,8 @@ function scene:hide( event )
 	
 	collectgarbage()
 
-	composer.removeScene( "cupones2" ,true)
-	
+	--composer.removeScene( "cupones2" ,true)
+	--composer.hideOverlay()
 	--Runtime:removeEventListener("enterFrame", update)
 	-- INSERT code here (e.g. stop timers, remove listeners, unload sounds, etc.)
 	-- Remove listeners attached to the Runtime, timers, transitions, audio tracks
@@ -71,7 +71,7 @@ function scene:destroy( event )
 	local group = self.view
 	
 	--collectgarbage()
-
+	composer.hideOverlay()
 	
 	-- INSERT code here (e.g. remove listeners, widgets, save state, etc.)
 	-- Remove listeners attached to the Runtime, timers, transitions, audio tracks
