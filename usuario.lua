@@ -2,7 +2,6 @@ local scene = composer.newScene()
 
 local datos, boton
 
-
 local function onTouch(object, event)
     
     if(object.myName == 1) then
@@ -43,12 +42,13 @@ function scene:create( event )
         img2:scale(.4,.4)
 
 
-        local lblFeed = display.newText(group,"Miguel Marcos", 220, 3, native.systemFont, 20)
+        local lblFeed = display.newText(group, gameState.name , 220, 3, native.systemFont, 20)
 
         datos= display.newText(group ,"Nombre", 160,  123, native.systemFont, 20)
         datos= display.newText(group ,"Dirección", 160,  203, native.systemFont, 20)
         datos= display.newText(group ,"Correo electrónico", 160,  283, native.systemFont, 20)
-         local txtB = native.newTextField(160, 155, 280, 35)
+        
+        local txtB = native.newTextField(160, 155, 280, 35)
         txtB.size = 20
         txtB:addEventListener("userInput", txtB)
         group:insert(txtB)
@@ -78,6 +78,7 @@ function scene:create( event )
 
                     elseif ( event.phase == "ended" or event.phase == "submitted" ) then
                         -- do something with defaultField text
+                        gameState.name = event.target.text
                         lblFeed.text = event.target.text
 
                     elseif ( event.phase == "editing" ) then

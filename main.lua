@@ -1,5 +1,6 @@
---require "CiderDebugger";
 composer = require( "composer" )
+
+gameState = require("gameState")
 
 display.setStatusBar( display.HiddenStatusBar )
 system.setIdleTimer( false ) -- para no apagar la pantalla
